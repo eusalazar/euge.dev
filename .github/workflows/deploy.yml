@@ -31,6 +31,12 @@ jobs:
       - name: Create CNAME file
         run: echo "euge.dev" > ./dist/CNAME
 
+         # Add headers configuration
+      - name: Add headers configuration
+        run: |
+          echo "/*" > ./dist/_headers
+          echo "  Content-Type: text/javascript" >> ./dist/_headers
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
