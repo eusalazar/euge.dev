@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Set this correctly if deploying locally or to a specific path
+  base: '/euge.dev/',
   build: {
     outDir: 'dist', // Directory to output build files
     assetsDir: 'assets', // Directory for static assets (like images, JS files, etc.)
