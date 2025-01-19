@@ -28,8 +28,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Create CNAME file
-        run: echo "euge.dev" > ./dist/CNAME
+      - name: Create necessary files
+        run: |
+          touch dist/.nojekyll
+          echo "euge.dev" > ./dist/CNAME
 
          # Add headers configuration
       - name: Add headers configuration
@@ -43,3 +45,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           cname: euge.dev
+          force_orphan: true 
