@@ -1,21 +1,19 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/euge.dev/',
+  base: './', // Use relative paths for deployment
   build: {
-    outDir: 'dist', // Directory to output build files
-    assetsDir: 'assets', // Directory for static assets (like images, JS files, etc.)
+    outDir: 'dist',
+    assetsDir: 'assets',
     rollupOptions: {
-      input: {
-        main: 'index.html', // Main entry point for your app
-      },
+      input: './index.html', // Explicit entry point
       output: {
-        entryFileNames: 'assets/[name].[hash].js', // Include hash in filenames for caching
+        entryFileNames: 'assets/[name].[hash].js',
         chunkFileNames: 'assets/[name].[hash].js',
         assetFileNames: 'assets/[name].[hash].[ext]',
       },
     },
   },
-})
+});
