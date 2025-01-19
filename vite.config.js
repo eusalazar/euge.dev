@@ -3,19 +3,19 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: '/', // Set this correctly if deploying locally or to a specific path
   build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
+    outDir: 'dist', // Directory to output build files
+    assetsDir: 'assets', // Directory for static assets (like images, JS files, etc.)
     rollupOptions: {
       input: {
-        main: 'index.html',
+        main: 'index.html', // Main entry point for your app
       },
       output: {
-        entryFileNames: `assets/[name].[hash].js`,
-        chunkFileNames: `assets/[name].[hash].js`,
-        assetFileNames: `assets/[name].[hash].[ext]`
-      }
-    }
-  }
+        entryFileNames: 'assets/[name].[hash].js', // Include hash in filenames for caching
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]',
+      },
+    },
+  },
 })
