@@ -7,15 +7,10 @@ const NavLinks = ({ mobile }) => {
     : "text-gray-300 hover:text-orange-400 transition-colors duration-300";
 
   const handleDownload = () => {
-    // The PDF file should be in your public folder
     const pdfUrl = '/Eugenia-Salazar-CV-QA.pdf';
-
-    // Create a link element
     const link = document.createElement('a');
     link.href = pdfUrl;
-    link.download = 'Eugenia-Salazar-CV-QA.pdf'; // This will be the downloaded file name
-
-    // Append to body, click, and remove
+    link.download = 'Eugenia-Salazar-CV-QA.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -38,30 +33,42 @@ const NavLinks = ({ mobile }) => {
   );
 };
 
-
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div className="max-w-6xl mx-auto px-4">
       <div className="flex justify-between items-center h-16">
-        <div className="text-xl font-bold">
-          <span className="bg-gradient-to-r from-orange-400 to-pink-500 text-transparent bg-clip-text">
+        <div className="flex items-center space-x-2">
+          {/* Text logo */}
+          <span className="text-xl font-bold bg-gradient-to-r from-orange-400 to-pink-500 text-transparent bg-clip-text">
             euge.dev
           </span>
+          {/* Badge */}
+          <div
+            data-iframe-width="150"
+            data-iframe-height="270"
+            data-share-badge-id="3e1d11a6-8cc7-4585-8154-0f8e5b34ec06"
+            data-share-badge-host="https://www.credly.com"
+            className="w-[30px] h-[30px]"
+          ></div>
+          <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
         </div>
 
+        {/* Mobile menu toggle */}
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-gray-300 hover:text-orange-400">
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
+        {/* Desktop navigation */}
         <div className="hidden md:flex space-x-6">
           <NavLinks />
         </div>
       </div>
 
+      {/* Mobile navigation */}
       {isMenuOpen && (
         <div className="md:hidden px-4 py-2 border-t border-gray-800">
           <NavLinks mobile />
