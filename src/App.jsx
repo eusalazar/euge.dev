@@ -45,7 +45,8 @@ function App() {
       {
         title: "AWS Certified Cloud Practitioner",
         description: "Conocimientos fundamentales sobre servicios e infraestructura de AWS",
-        certifications: ["AWS: Cloud Computing"]
+        certifications: ["AWS: Cloud Computing"],
+        certifications: ["NÚMERO DE VALIDACIÓN: b342c73aa8144761a58bd29b114de5b6"],
       },
       {
         title: "Free Range Testers / Udemy",
